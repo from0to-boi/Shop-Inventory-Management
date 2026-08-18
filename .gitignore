@@ -1,0 +1,4 @@
+shop.db
+.venv
+__pycache__/
+.vscode/
