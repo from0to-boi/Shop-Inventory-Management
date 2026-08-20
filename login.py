@@ -1,3 +1,8 @@
+import ctypes
+
+myappid = "mycompany.shopinventorymanager.1.0"
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
 import customtkinter as ctk
 from tkinter import messagebox
 
@@ -26,7 +31,8 @@ class LoginWindow:
             False,
             False
         )
-
+        self.root.iconbitmap("Icons/icon.ico")
+        
         self.widgets()
 
         self.root.mainloop()

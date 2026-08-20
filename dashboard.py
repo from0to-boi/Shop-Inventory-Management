@@ -1,3 +1,8 @@
+import ctypes
+
+myappid = "mycompany.shopinventorymanager.1.0"
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
 from PIL import Image
 import customtkinter as ctk
 import os
@@ -28,6 +33,7 @@ class Dashboard(ctk.CTk):
 
         self.title("Shop Inventory Management")
         self.geometry("1200x700")
+        self.iconbitmap("Icons/icon.ico")
 
         # ==========================
         # Configure window grid
