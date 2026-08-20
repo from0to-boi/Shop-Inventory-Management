@@ -1,3 +1,14 @@
+import os
+import sys
+
+def resource_path(relative_path):
+    """Get the correct path for development and PyInstaller."""
+    
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+
+    return os.path.join(os.path.abspath("."), relative_path)
+
 import ctypes
 
 myappid = "mycompany.shopinventorymanager.1.0"
@@ -33,7 +44,7 @@ class Dashboard(ctk.CTk):
 
         self.title("Shop Inventory Management")
         self.geometry("1200x700")
-        self.iconbitmap("Icons/icon.ico")
+        self.iconbitmap(resource_path("Icons/icon.ico"))
 
         # ==========================
         # Configure window grid

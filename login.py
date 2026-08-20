@@ -1,3 +1,13 @@
+import os
+import sys
+
+def resource_path(relative_path):
+    """Get the correct path for development and PyInstaller."""
+    
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+
+    return os.path.join(os.path.abspath("."), relative_path)
 import ctypes
 
 myappid = "mycompany.shopinventorymanager.1.0"
@@ -31,8 +41,8 @@ class LoginWindow:
             False,
             False
         )
-        self.root.iconbitmap("Icons/icon.ico")
-        
+        self.root.iconbitmap(resource_path("Icons/icon.ico"))
+    
         self.widgets()
 
         self.root.mainloop()
@@ -44,6 +54,7 @@ class LoginWindow:
     def widgets(self):
 
         self.login_frame = ctk.CTkFrame(
+
             self.root,
             width=380,
             height=420,
