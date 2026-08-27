@@ -1,3 +1,5 @@
+build/
+dist/
 shop.db
 .venv
 __pycache__/
